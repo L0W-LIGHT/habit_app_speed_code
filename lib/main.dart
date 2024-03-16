@@ -4,9 +4,14 @@ import 'package:habit_speed_code/pages/profilePage.dart';
 import 'package:habit_speed_code/pages/progressPage.dart';
 
 import 'pages/homePage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +32,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class NavigationScreen extends StatefulWidget {
   NavigationScreen({required this.currentIndex});
   int currentIndex;

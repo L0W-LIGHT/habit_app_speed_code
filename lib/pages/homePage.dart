@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.centerLeft,
                   child: Column(children: [
                     Text(
-                      "Hey Hermano!",
+                      "Hey Nikhil!",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

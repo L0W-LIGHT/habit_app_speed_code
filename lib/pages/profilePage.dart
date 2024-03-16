@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: EdgeInsets.only(top: 25, bottom: 10),
             child: const Center(
                 child: Text(
-              "Hey Hermano!",
+              "Hey Nikhil!",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 22,

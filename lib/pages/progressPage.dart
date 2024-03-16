@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+// ignore: unused_import
 import '../services.dart/lists.dart';
 
 class ProgressPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ProgressPageState extends State<ProgressPage> {
                   alignment: Alignment.centerLeft,
                   child: Column(children: const [
                     Text(
-                      "Hey Hermano!",
+                      "Hey Nikhil!",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
