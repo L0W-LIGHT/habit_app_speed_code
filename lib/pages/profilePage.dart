@@ -22,6 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
             backgroundImage: NetworkImage(
                 'https://cdn2.iconfinder.com/data/icons/avatars-60/5985/12-Delivery_Man-512.png'),
           ),
+          // ignore: duplicate_ignore
           // ignore: prefer_const_constructors
           Padding(
             padding: EdgeInsets.only(top: 25, bottom: 10),

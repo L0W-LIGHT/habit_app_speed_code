@@ -1,17 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:habit_speed_code/pages/habitsPage.dart';
-import 'package:habit_speed_code/pages/profilePage.dart';
-import 'package:habit_speed_code/pages/progressPage.dart';
+// main.dart
 
-import 'pages/homePage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:flutter/material.dart';
+import 'package:habit_speed_code/firebase_options.dart';
+import 'package:habit_speed_code/pages/login.dart'
+    as Login; // Import your login page with an alias
+import 'package:habit_speed_code/pages/homePage.dart';
+import 'package:habit_speed_code/pages/navigation.dart'; // Import your home page
 
 Future<void> main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,54 +28,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NavigationScreen(
-        currentIndex: 3,
-      ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class NavigationScreen extends StatefulWidget {
-  NavigationScreen({required this.currentIndex});
-  int currentIndex;
-  @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
-}
-
-const List<Widget> screens = [
-  HomePage(),
-  ProgressPage(),
-  Habitspage(),
-  ProfilePage()
-];
-
-class _NavigationScreenState extends State<NavigationScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: widget.currentIndex,
-        children: screens,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.deepPurpleAccent,
-        currentIndex: widget.currentIndex,
-        onTap: (index) {
-          setState(() {
-            widget.currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), label: "Progress"),
-          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Habits"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
-        ],
-      ),
+      initialRoute: '/login', // Set the initial route to '/login'
+      routes: {
+        '/login': (context) => Login
+            .LoginPage(), // Use LoginPage from the 'login.dart' file with its alias
+        '/home': (context) => NavigationScreen(
+              currentIndex: 1,
+            ), // Define the route for HomePage
+      },
     );
   }
 }
