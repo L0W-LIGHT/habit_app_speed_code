@@ -5,7 +5,7 @@ import 'package:habit_speed_code/pages/profilePage.dart';
 import 'package:habit_speed_code/pages/progressPage.dart';
 
 class NavigationScreen extends StatefulWidget {
-  NavigationScreen({required this.currentIndex});
+  NavigationScreen({super.key, required this.currentIndex});
   int currentIndex;
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();
